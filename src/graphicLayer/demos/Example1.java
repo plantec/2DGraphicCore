@@ -18,7 +18,7 @@ public class Example1 {
 		GSpace w = new GSpace("Ecran qui rend fou", new Dimension(800, 600));
 		GBounded gb = new GBounded();
 		gb.setPosition(new Point(100,100));
-		gb.setDimension(new Dimension(400, 300));
+		gb.setDimension(new Dimension(780, 580));
 		gb.setColor(Color.gray);
 		
 		w.addElement(gb);
@@ -36,15 +36,11 @@ public class Example1 {
 		}
 		w.open();
 		while (true) {
-			Point gap = new Point(x.nextInt(11), x.nextInt(11));
-			gap.translate(-5, -5);
-			gb.translate(gap);
+			gb.setPosition(new Point(x.nextInt(11), x.nextInt(11)));
 			GElement [] elements = gb.getRawContents();
 			for (int i = 0; i < elements.length; i++) {
 				GBounded next = (GBounded) elements[i];
-				gap = new Point(x.nextInt(9), x.nextInt(9));
-				gap.translate(-4, -4);
-				next.translate(gap);
+				next.translate(x.nextInt(11)-5, x.nextInt(11)-5);
 			}
 			try {
 				Thread.sleep(50);

@@ -26,9 +26,9 @@ public class GImage extends GElement {
 		return rawImage;
 	}
 	
-	public void translate(Point gap) {
+	public void translate(int x, int y) {
 		Point p = getPosition();
-		this.setPosition(new Point(p.x+gap.x, p.y+gap.y));
+		this.setPosition(new Point(p.x+x, p.y+y));
 	}
 	
 	@Override

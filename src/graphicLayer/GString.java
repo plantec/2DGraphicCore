@@ -6,12 +6,20 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 
+import javax.swing.UIManager;
+
 public class GString extends GBounded {
 	Font font;
 	FontMetrics metrics;
 	String str = "";
 	
-	public GString() { }
+	public GString() { 
+		this.font = this.defaultFont();
+	}
+	
+	public Font defaultFont() {
+		return (Font) UIManager.getDefaults().get("TextField.font");
+	}
 	
 	public GString(String str) {
 		this.str = str;
@@ -28,6 +36,10 @@ public class GString extends GBounded {
 		if (metrics == null) {
 			metrics = g.getFontMetrics(font);
 		}		
+	}
+	
+	public void setFontSize(int size) {
+		this.setFont(new Font(this.font.getFontName(), this.font.getStyle(), size));
 	}
 	
 	@Override

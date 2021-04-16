@@ -17,15 +17,15 @@ public class GCubicCurve extends GElement {
 		stroke = new BasicStroke();
 	}
 	
-	public void translate(Point gap) {
+	public void translate(int x, int y) {
 		Point2D from = curve.getP1();
 		Point2D to = curve.getP2();
 		Point2D ctrl1 = curve.getCtrlP1();
 		Point2D ctrl2 = curve.getCtrlP1();
-		from.setLocation(from.getX()+ gap.getX(), from.getY()+ gap.getY());
-		to.setLocation(to.getX()+ gap.getX(), to.getY()+ gap.getY());
-		ctrl1.setLocation(ctrl1.getX()+ gap.getX(), ctrl1.getY()+ gap.getY());
-		ctrl2.setLocation(ctrl2.getX()+ gap.getX(), ctrl2.getY()+ gap.getY());
+		from.setLocation(from.getX()+ x, from.getY()+y);
+		to.setLocation(to.getX()+ x, to.getY()+ y);
+		ctrl1.setLocation(ctrl1.getX()+ x, ctrl1.getY()+ y);
+		ctrl2.setLocation(ctrl2.getX()+ x, ctrl2.getY()+ y);
 		repaint();
 	}
 	

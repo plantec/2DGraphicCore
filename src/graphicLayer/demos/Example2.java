@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 
-import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
 import graphicLayer.GString;
@@ -20,7 +19,7 @@ public class Example2  {
 		GRect container = new GRect();
 		container.setColor(Color.white);
 		container.setDimension(new Dimension(400,300));
-		container.translate(new Point(50, 50));
+		container.translate(50, 50);
 		label = new GString("container " + container.getWidth() + "x" + container.getHeight() );
 		label.setColor(Color.red);
 		label.setFont(new Font("Arial", Font.BOLD, 20));

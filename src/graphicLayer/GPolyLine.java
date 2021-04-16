@@ -65,9 +65,9 @@ public class GPolyLine extends GElement {
 	}
 
 	@Override
-	public void translate(Point gap) {
+	public void translate(int x, int y) {
 		for (Point p : points) {
-			p.translate(gap.x, gap.y);
+			p.translate(x, y);
 		}
 		repaint();
 	}

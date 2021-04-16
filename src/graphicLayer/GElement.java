@@ -17,7 +17,7 @@ public abstract class GElement  {
 		return Color.blue;
 	}
 	
-	abstract public void translate(Point gap);
+	abstract public void translate(int x, int y);
 
 	public GContainer getContainer() {
 		return container;

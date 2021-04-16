@@ -60,9 +60,9 @@ public  class GBounded extends GElement implements GContainer{
 		setPosition(new Point(p.x, y));
 	}
 
-	public void translate(Point gap) {
+	public void translate(int x, int y) {
 		Point p = getPosition();
-		this.setPosition(new Point(p.x+gap.x, p.y+gap.y));
+		this.setPosition(new Point(p.x+x, p.y+y));
 	}
 	
 	public GElement [] getRawContents() {
@@ -118,6 +118,12 @@ public  class GBounded extends GElement implements GContainer{
 	public void setHeight(Integer height) {
 		this.setDimension(new Dimension(this.getWidth(), height));
 	}
+	
+	public Point getCenter() {
+		return new Point(this.getWidth()/2, this.getHeight()/2);
+	}
+
+
 
 	public void addElement(GElement m) {
 		if (m.getContainer() != null)
@@ -161,6 +167,7 @@ public  class GBounded extends GElement implements GContainer{
 			m.dispatchMouseClicked(e);
 		}
 		if (!e.isConsumed()) {
+			e.setSource(this);
 			whenMouseClicked(e);
 		}
 		e.translatePoint(getX(), getY());
@@ -264,6 +271,5 @@ public  class GBounded extends GElement implements GContainer{
 			mouseListener.mouseExited(e);
 		}
 	}
-
 	
 }

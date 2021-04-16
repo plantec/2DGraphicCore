@@ -43,9 +43,9 @@ public class GLine extends GElement {
 		setStroke(new BasicStroke(w));
 	}
 
-	public void translate(Point gap) {
-		from.translate(gap.x, gap.y);
-		to.translate(gap.x, gap.y);
+	public void translate(int x, int y) {
+		from.translate(x, y);
+		to.translate(x, y);
 		repaint();
 	}
 
