@@ -30,7 +30,11 @@ public  class GBounded extends GElement implements GContainer{
 	
 	public void setPosition(Point p) {
 		position = p;
-		repaint();		
+	}
+	
+	public void setCenter(Point p) {
+		p.translate(-this.getWidth()/2, -this.getHeight()/2);
+		this.setPosition(p);
 	}
 	
 	public Point getGlobalPosition() {

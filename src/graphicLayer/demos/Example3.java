@@ -3,7 +3,6 @@ package graphicLayer.demos;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -78,7 +77,13 @@ public class Example3 implements MouseListener {
 		
 	public void mouseClicked(MouseEvent e) {
 		System.out.println("Click " + e);
-		((GOval)e.getSource()).setColor(new Color((int) (Math.random() * 0x1000000)));
+		GOval src = (GOval) e.getSource();
+		GOval clickArea = new GOval();
+		clickArea.setDimension(new Dimension(20,20));
+		clickArea.setCenter(e.getPoint());
+		clickArea.setColor(Color.white);
+		src.addElement(clickArea);
+		src.repaint();
 		e.consume();
 	}
 
