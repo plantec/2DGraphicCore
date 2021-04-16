@@ -17,6 +17,10 @@ public class GString extends GBounded {
 		this.str = str;
 	}
 	
+	public Color defaultColor() {
+		return Color.black;
+	}
+	
 	private void ensureFont(Graphics2D g) {
 		if (font == null) {
 			font = g.getFont();
