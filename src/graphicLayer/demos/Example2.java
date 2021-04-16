@@ -53,6 +53,7 @@ public class Example2  {
 		
 		space.open();
 		
+		// space width and height are available only after it is opened
 		label = new GString("space " + space.getWidth() + "x" + space.getHeight() );
 		label.setFont(new Font("Arial", Font.BOLD, 24));
 		label.setColor(Color.darkGray);
