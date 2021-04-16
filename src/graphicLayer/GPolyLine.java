@@ -57,7 +57,6 @@ public class GPolyLine extends GElement {
 
 	public void setStroke(Stroke stroke) {
 		this.stroke = stroke;
-		repaint();
 	}
 	
 	public void setWidth(float w) {
@@ -69,7 +68,6 @@ public class GPolyLine extends GElement {
 		for (Point p : points) {
 			p.translate(x, y);
 		}
-		repaint();
 	}
 
 }

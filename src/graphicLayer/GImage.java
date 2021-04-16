@@ -19,7 +19,6 @@ public class GImage extends GElement {
 	
 	public void setPosition(Point p) {
 		position = p;
-		repaint();		
 	}
 
 	public Image getRawImage() {

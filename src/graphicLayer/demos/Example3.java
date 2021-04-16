@@ -25,12 +25,12 @@ public class Example3 implements MouseListener {
 	}
 
 	public void createAndShowGUI ( ) {
-		GSpace w = new GSpace("Zoo", new Dimension(400, 400));
+		GSpace w = new GSpace("Zoo", new Dimension(500, 400));
 		GRect container = new GRect();
 		container.withoutBorder();
 		container.setColor(Color.white);
 		container.setPosition(new Point(30,30));
-		container.setDimension(new Dimension(300,300));
+		container.setDimension(new Dimension(400,300));
 		w.addElement(container);
 		
 		GOval cercle = new GOval();
@@ -39,17 +39,17 @@ public class Example3 implements MouseListener {
 		cercle.setColor(Color.yellow);
 		container.addElement(cercle);
 		
-		GOval subContainer = new GOval();
+		GRect subContainer = new GRect();
 		subContainer.setColor(Color.red);
 		subContainer.setPosition(new Point(50,20));
-		subContainer.setDimension(new Dimension(250,250));
+		subContainer.setDimension(new Dimension(300,250));
 		container.addElement(subContainer);
 
 		subContainer.addMouseListener(this);
 		
 		GString s = new GString();
 		s.setPosition(new Point(10,0));
-		s.setString("Click here inside this circle");
+		s.setString("Click here inside this rectangle");
 		s.setFontSize(18);
 		s.setColor(Color.white);
 		s.translate(0, subContainer.getCenter().y);
@@ -77,7 +77,7 @@ public class Example3 implements MouseListener {
 		
 	public void mouseClicked(MouseEvent e) {
 		System.out.println("Click " + e);
-		GOval src = (GOval) e.getSource();
+		GRect src = (GRect) e.getSource();
 		GOval clickArea = new GOval();
 		clickArea.setDimension(new Dimension(20,20));
 		clickArea.setCenter(e.getPoint());

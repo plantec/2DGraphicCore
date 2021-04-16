@@ -26,7 +26,6 @@ public class GCubicCurve extends GElement {
 		to.setLocation(to.getX()+ x, to.getY()+ y);
 		ctrl1.setLocation(ctrl1.getX()+ x, ctrl1.getY()+ y);
 		ctrl2.setLocation(ctrl2.getX()+ x, ctrl2.getY()+ y);
-		repaint();
 	}
 	
 	@Override
@@ -44,7 +43,6 @@ public class GCubicCurve extends GElement {
 	
 	public void setStroke(Stroke stroke) {
 		this.stroke = stroke;
-		repaint();
 	}
 	
 	public void setWidth(float w) {

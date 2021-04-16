@@ -112,7 +112,6 @@ public  class GBounded extends GElement implements GContainer{
 
 	public void setDimension(Dimension dim) {
 		this.dim = dim;
-		this.repaint();
 	}
 
 	public void setWidth(Integer width) {
@@ -126,8 +125,6 @@ public  class GBounded extends GElement implements GContainer{
 	public Point getCenter() {
 		return new Point(this.getWidth()/2, this.getHeight()/2);
 	}
-
-
 
 	public void addElement(GElement m) {
 		if (m.getContainer() != null)
@@ -148,7 +145,6 @@ public  class GBounded extends GElement implements GContainer{
 			e.setContainer(null);
 		}
 		subElements.clear();
-		this.repaint();
 	}
 
 	

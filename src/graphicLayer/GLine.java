@@ -36,7 +36,6 @@ public class GLine extends GElement {
 
 	public void setStroke(Stroke stroke) {
 		this.stroke = stroke;
-		repaint();
 	}
 	
 	public void setWidth(float w) {
@@ -46,7 +45,6 @@ public class GLine extends GElement {
 	public void translate(int x, int y) {
 		from.translate(x, y);
 		to.translate(x, y);
-		repaint();
 	}
 
 }

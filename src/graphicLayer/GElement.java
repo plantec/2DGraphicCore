@@ -33,7 +33,6 @@ public abstract class GElement  {
 
 	public void setColor (Color c) {
 		color = c;
-		repaint();		
 	}
 	
 	public void dispatchMouseClicked(MouseEvent e) {}

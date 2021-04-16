@@ -42,6 +42,7 @@ public class Example1 {
 				GBounded next = (GBounded) elements[i];
 				next.translate(x.nextInt(11)-5, x.nextInt(11)-5);
 			}
+			w.repaint();
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
