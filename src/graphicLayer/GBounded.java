@@ -20,6 +20,10 @@ public  class GBounded extends GElement implements GContainer{
 		this.dim = new Dimension(20, 20);
 	}
 	
+	public Boolean containsPoint(Point p) {
+		return this.getBounds().contains(p);
+	}
+	
 	public List<GElement> getSubElements() {
 		return subElements;
 	}
@@ -166,7 +170,7 @@ public  class GBounded extends GElement implements GContainer{
 	}
 
 	public void dispatchMouseClicked(MouseEvent e) {
-		if (!getBounds().contains(e.getPoint())) {
+		if (!this.containsPoint(e.getPoint())) {
 			return;
 		}
 		e.translatePoint(-getX(), -getY());
@@ -183,7 +187,7 @@ public  class GBounded extends GElement implements GContainer{
 	}
 
 	public void dispatchMousePressed(MouseEvent e) {
-		if (!getBounds().contains(e.getPoint())) {
+		if (!this.containsPoint(e.getPoint())) {
 			return;
 		}
 		e.translatePoint(-getX(), -getY());
@@ -199,7 +203,7 @@ public  class GBounded extends GElement implements GContainer{
 	}
 
 	public void dispatchMouseReleased(MouseEvent e) {
-		if (!getBounds().contains(e.getPoint())) {
+		if (!this.containsPoint(e.getPoint())) {
 			return;
 		}
 		e.translatePoint(-getX(), -getY());
@@ -215,7 +219,7 @@ public  class GBounded extends GElement implements GContainer{
 	}
 
 	public void dispatchMouseEntered(MouseEvent e) {
-		if (!getBounds().contains(e.getPoint())) {
+		if (!this.containsPoint(e.getPoint())) {
 			return;
 		}
 		e.translatePoint(-getX(), -getY());
@@ -231,7 +235,7 @@ public  class GBounded extends GElement implements GContainer{
 	}
 
 	public void dispatchMouseExited(MouseEvent e) {
-		if (!getBounds().contains(e.getPoint())) {
+		if (!this.containsPoint(e.getPoint())) {
 			return;
 		}
 		e.translatePoint(-getX(), -getY());

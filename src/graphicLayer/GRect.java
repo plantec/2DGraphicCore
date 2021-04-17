@@ -6,43 +6,27 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Stroke;
 
-public class GRect extends GBounded {
+public class GRect extends GBounded implements Bordered {
 	Color borderColor;
 	Stroke stroke;
 	boolean withBorder;
-	
-	public Color defaultBorderColor() {
-		return Color.black;
-	}
-	public Stroke defaultStroke() {
-		return new BasicStroke(1);
-	}
-	
+		
 	public GRect() {
 		withBorder = true;
 		borderColor = defaultBorderColor();
 		stroke = defaultStroke();
 	}
 		
+	@Override
 	public void setBorderColor(Color borderColor) {
 		this.borderColor = borderColor;
 	}
 	
-	public void setBorderWidth(float w) {
-		setStroke(new BasicStroke(w));
-	}
-	
+	@Override
 	public void setStroke(Stroke stroke) {
 		this.stroke = stroke;
 	}
-	
-	public void withoutBorder() {
-		withBorder = false;
-	}
-	public void withBorder() {
-		withBorder = true;
-	}
-	
+		
 	public void draw(Graphics2D g) {
 		Rectangle bounds = this.getBounds();
 		Color previousColor = g.getColor();
@@ -60,6 +44,11 @@ public class GRect extends GBounded {
 		g.setStroke(previousStroke);
 		
 		drawContents(g);
+	}
+
+	@Override
+	public void setWithBorder(Boolean withBorder) {
+		this.withBorder = withBorder;
 	}
 
 	

@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -41,6 +42,10 @@ public class GSpace extends JPanel implements GContainer, KeyListener, MouseList
 		this.setPreferredSize(dim);
 		JFrame frame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, this);
 		frame.pack();
+	}
+	
+	public Boolean containsPoint(Point p) {
+		return new Rectangle(this.getPreferredSize()).contains(p);
 	}
 	
 	public void open() {
