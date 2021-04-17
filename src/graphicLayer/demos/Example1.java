@@ -14,6 +14,7 @@ import graphicLayer.GSpace;
 public class Example1 { 
 
 	public static void main(String[] args) {
+		int population = 10000;
 		Random x = new Random();
 		GSpace w = new GSpace("Ecran qui rend fou", new Dimension(800, 600));
 		GBounded gb = new GBounded();
@@ -25,7 +26,7 @@ public class Example1 {
 		
 		int width = gb.getWidth();
 		int height = gb.getHeight();
-		for (int i = 0; i < 2000; i++) {
+		for (int i = 0; i < population; i++) {
 			int ox = x.nextInt(width);
 			int oy = x.nextInt(height);
 			GOval oval = new GOval();
