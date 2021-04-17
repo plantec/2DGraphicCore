@@ -20,6 +20,10 @@ public  class GBounded extends GElement implements GContainer{
 		this.dim = new Dimension(20, 20);
 	}
 	
+	public List<GElement> getSubElements() {
+		return subElements;
+	}
+	
 	public void addMouseListener(MouseListener k) {
 		mouseListeners.add(k);
 	}
@@ -74,17 +78,17 @@ public  class GBounded extends GElement implements GContainer{
 	}
 	
 	public void drawContents(Graphics2D g) {
-		if (subElements.isEmpty()) {
+		if (this.subElements.isEmpty()) {
 			return;
 		}
 		Shape currentClip = g.getClipBounds();
 		g.setClip(getX(), getY(), getWidth(), getHeight());
 		g.translate(getX(), getY());
-		GElement [] subs = this.getRawContents();
-		for (int n = 0; n < subs.length; n++) {
-			GElement m = subs[n];
+		
+		for (GElement m : this.subElements) {
 			m.draw(g);
 		}
+		
 		g.translate(-getX(), -getY());
 		g.setClip(currentClip);
 	}
@@ -132,6 +136,11 @@ public  class GBounded extends GElement implements GContainer{
 		m.setContainer(this);
 		subElements.add(m);
 	}
+	
+	public void addAllElements(List<GElement> l) {
+		for (GElement e : l) this.addElement(e);
+	}
+	
 	public void removeElement(GElement m) {
 		if (m.getContainer() == null)
 			return;
