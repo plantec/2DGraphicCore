@@ -2,19 +2,13 @@ package graphicLayer;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 
 public abstract class GElement  {
 	protected GContainer container;
 	protected Color color = defaultColor();
-	Runnable repainter = new Runnable() {
-        @Override
-        public void run() {
-        	container.repaint();
-        	Toolkit.getDefaultToolkit().sync();
-        }
-    };
 
 	abstract public void draw(Graphics2D g);	
 		
@@ -42,6 +36,10 @@ public abstract class GElement  {
 
 	public void setColor (Color c) {
 		color = c;
+	}
+	
+	public Shape getClippingShape() {
+		return null;
 	}
 	
 	public void dispatchMouseClicked(MouseEvent e) {}

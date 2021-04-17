@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.Stroke;
 import java.awt.geom.Ellipse2D;
 
@@ -16,6 +17,13 @@ public class GOval extends GBounded implements Bordered {
 		withBorder = true;
 		borderColor = this.defaultBorderColor();
 		stroke = this.defaultStroke();
+	}
+	
+	public Shape getClippingShape() {
+		Ellipse2D ellipse = new Ellipse2D.Float();
+		Rectangle bounds = this.getBounds();
+		ellipse.setFrame(bounds.x,bounds.y,bounds.width,bounds.height);
+		return ellipse;
 	}
 
 	public void draw(Graphics2D g) {

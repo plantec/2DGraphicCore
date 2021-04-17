@@ -81,12 +81,16 @@ public  class GBounded extends GElement implements GContainer{
 		return subElements.toArray(new GElement[subElements.size()]);
 	}
 	
+	public Shape getClippingShape() {
+		return this.getBounds();
+	}
+	
 	public void drawContents(Graphics2D g) {
 		if (this.subElements.isEmpty()) {
 			return;
 		}
 		Shape currentClip = g.getClipBounds();
-		g.setClip(getX(), getY(), getWidth(), getHeight());
+		g.setClip(this.getClippingShape());
 		g.translate(getX(), getY());
 		
 		for (GElement m : this.subElements) {
