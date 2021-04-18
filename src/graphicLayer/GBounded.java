@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public  class GBounded extends GElement implements GContainer{
+public  class GBounded extends GBasicElement implements GContainer{
 	protected Point position;
 	protected Dimension dim;
 	protected List<GElement> subElements = new ArrayList<GElement>();
@@ -73,7 +73,7 @@ public  class GBounded extends GElement implements GContainer{
 	}
 
 	public void translate(int x, int y) {
-		Point p = getPosition();
+		Point p = this.getPosition();
 		this.setPosition(new Point(p.x+x, p.y+y));
 	}
 	
@@ -85,7 +85,7 @@ public  class GBounded extends GElement implements GContainer{
 		return this.getBounds();
 	}
 	
-	public void drawContents(Graphics2D g) {
+	public void drawContents(Graphics g) {
 		if (this.subElements.isEmpty()) {
 			return;
 		}
@@ -94,14 +94,14 @@ public  class GBounded extends GElement implements GContainer{
 		g.translate(getX(), getY());
 		
 		for (GElement m : this.subElements) {
-			m.draw(g);
+			m.paint(g);
 		}
 		
 		g.translate(-getX(), -getY());
 		g.setClip(currentClip);
 	}
 	
-	public void draw(Graphics2D g) {
+	public void paint(Graphics g) {
 		Rectangle bounds = this.getBounds();
 		Color c = g.getColor();
 		g.setColor(color);

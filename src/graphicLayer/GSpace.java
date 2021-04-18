@@ -86,7 +86,7 @@ public class GSpace extends JPanel implements GContainer, KeyListener, MouseList
 		Graphics2D g2d = (Graphics2D) g;
 		GElement [] elems = (GElement[]) elements.toArray(new GElement[elements.size()]);
 		for (int n = 0; n < elems.length; n++) {
-			elems[n].draw(g2d);
+			elems[n].paint(g2d);
 		}
 	}
 

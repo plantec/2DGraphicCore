@@ -2,13 +2,14 @@ package graphicLayer;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Stroke;
 import java.awt.geom.CubicCurve2D;
 import java.awt.geom.Point2D;
 
-public class GCubicCurve extends GElement {
+public class GCubicCurve extends GBasicElement {
 	CubicCurve2D curve = new CubicCurve2D.Double();
 	Stroke stroke;
 	
@@ -29,16 +30,17 @@ public class GCubicCurve extends GElement {
 	}
 	
 	@Override
-	public void draw(Graphics2D g) {
-		Stroke previousStroke = g.getStroke();
-		Color previousColor = g.getColor();
+	public void paint(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		Stroke previousStroke = g2d.getStroke();
+		Color previousColor = g2d.getColor();
 
-		g.setStroke(stroke);
-		g.setColor(color);
-		g.draw(curve);
+		g2d.setStroke(stroke);
+		g2d.setColor(color);
+		g2d.draw(curve);
 
-		g.setColor(previousColor);
-		g.setStroke(previousStroke);
+		g2d.setColor(previousColor);
+		g2d.setStroke(previousStroke);
 	}
 	
 	public void setStroke(Stroke stroke) {

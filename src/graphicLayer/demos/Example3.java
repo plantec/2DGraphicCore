@@ -8,14 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.Timer;
 
-import graphicLayer.GBounded;
 import graphicLayer.GContainer;
-import graphicLayer.GElement;
 import graphicLayer.GLine;
 import graphicLayer.GOval;
 import graphicLayer.GPolyLine;

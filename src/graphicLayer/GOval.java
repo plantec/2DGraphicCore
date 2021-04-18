@@ -1,6 +1,7 @@
 package graphicLayer;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -26,22 +27,23 @@ public class GOval extends GBounded implements Bordered {
 		return ellipse;
 	}
 
-	public void draw(Graphics2D g) {
-		Color previousColor = g.getColor();
-		Stroke previousStroke = g.getStroke();
+	public void paint(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		Color previousColor = g2d.getColor();
+		Stroke previousStroke = g2d.getStroke();
 
 		Rectangle bounds = this.getBounds();
-		g.setColor(color);
-		g.fillOval(bounds.x,bounds.y,bounds.width,bounds.height);
-		this.drawContents(g);
+		g2d.setColor(color);
+		g2d.fillOval(bounds.x,bounds.y,bounds.width,bounds.height);
+		this.drawContents(g2d);
 		if (this.withBorder) {
-			g.setColor(this.borderColor);
-			g.setStroke(this.stroke);
-			g.drawOval(bounds.x, bounds.y, bounds.width, bounds.height);
+			g2d.setColor(this.borderColor);
+			g2d.setStroke(this.stroke);
+			g2d.drawOval(bounds.x, bounds.y, bounds.width, bounds.height);
 		}
 		
-		g.setColor(previousColor);
-		g.setStroke(previousStroke);
+		g2d.setColor(previousColor);
+		g2d.setStroke(previousStroke);
 	}
 
 	@Override

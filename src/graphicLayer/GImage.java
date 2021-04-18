@@ -1,10 +1,10 @@
 package graphicLayer;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 
-public class GImage extends GElement {
+public class GImage extends GBasicElement {
 	Point position;
 	Image rawImage;
 	
@@ -31,7 +31,7 @@ public class GImage extends GElement {
 	}
 	
 	@Override
-	public void draw(Graphics2D g) {
+	public void paint(Graphics g) {
 		g.drawImage(rawImage, getPosition().x, getPosition().y, null);
 	}
 

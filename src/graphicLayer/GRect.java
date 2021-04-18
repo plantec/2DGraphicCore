@@ -1,7 +1,7 @@
 package graphicLayer;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Stroke;
@@ -27,21 +27,22 @@ public class GRect extends GBounded implements Bordered {
 		this.stroke = stroke;
 	}
 		
-	public void draw(Graphics2D g) {
+	public void paint(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
 		Rectangle bounds = this.getBounds();
-		Color previousColor = g.getColor();
-		Stroke previousStroke = g.getStroke();
+		Color previousColor = g2d.getColor();
+		Stroke previousStroke = g2d.getStroke();
 		
-		g.setColor(color);
-		g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
+		g2d.setColor(color);
+		g2d.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
 		if (withBorder) {
-			g.setColor(borderColor);
-			g.setStroke(stroke);
-			g.drawRect(bounds.x, bounds.y, bounds.width, bounds.height);
+			g2d.setColor(borderColor);
+			g2d.setStroke(stroke);
+			g2d.drawRect(bounds.x, bounds.y, bounds.width, bounds.height);
 		}
 		
-		g.setColor(previousColor);
-		g.setStroke(previousStroke);
+		g2d.setColor(previousColor);
+		g2d.setStroke(previousStroke);
 		
 		drawContents(g);
 	}

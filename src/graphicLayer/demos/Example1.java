@@ -70,7 +70,6 @@ public class Example1 {
 		Timer animation = new Timer(0, taskPerformer);
 		animation.setDelay(delay);
 		animation.start();
-
 	}
 
 }

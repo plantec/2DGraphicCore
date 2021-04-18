@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 import javax.swing.UIManager;
 
@@ -29,7 +29,7 @@ public class GString extends GBounded {
 		return Color.black;
 	}
 	
-	private void ensureFont(Graphics2D g) {
+	private void ensureFont(Graphics g) {
 		if (font == null) {
 			font = g.getFont();
 		}
@@ -43,7 +43,7 @@ public class GString extends GBounded {
 	}
 	
 	@Override
-	public void draw(Graphics2D g) {
+	public void paint(Graphics g) {
 		ensureFont(g);
 		Font previousFont = g.getFont();
 		Color previousColor = g.getColor();

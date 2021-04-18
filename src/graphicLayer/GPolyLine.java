@@ -2,6 +2,7 @@ package graphicLayer;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.awt.Stroke;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class GPolyLine extends GElement {
+public class GPolyLine extends GBasicElement {
 	ArrayList<Point> points;
 	Stroke stroke;
 
@@ -34,9 +35,10 @@ public class GPolyLine extends GElement {
 	}
 
 	@Override
-	public void draw(Graphics2D g) {
-		Stroke previousStroke = g.getStroke();
-		Color previousColor = g.getColor();
+	public void paint(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		Stroke previousStroke = g2d.getStroke();
+		Color previousColor = g2d.getColor();
 		int[] x = new int[points.size()];
 		int[] y = new int[points.size()];
 		int idx = 0;
@@ -47,11 +49,11 @@ public class GPolyLine extends GElement {
 			y[idx] = curr.y;
 			idx++;
 		}
-		g.setStroke(stroke);
-		g.setColor(color);
-		g.drawPolyline(x, y, idx);
-		g.setColor(previousColor);
-		g.setStroke(previousStroke);
+		g2d.setStroke(stroke);
+		g2d.setColor(color);
+		g2d.drawPolyline(x, y, idx);
+		g2d.setColor(previousColor);
+		g2d.setStroke(previousStroke);
 	}
 
 	public void setStroke(Stroke stroke) {
