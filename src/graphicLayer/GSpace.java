@@ -35,7 +35,6 @@ public class GSpace extends JPanel implements GContainer, KeyListener, MouseList
 	}
 	
 	public void addMouseListener(MouseListener listener) {
-		System.out.println(listener);
 		super.addMouseListener(listener);
 	}
 

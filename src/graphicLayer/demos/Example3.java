@@ -95,11 +95,12 @@ public class Example3 implements MouseListener {
 					GContainer container = src.getContainer();
 					src.delete();
 					container.repaint();
-					System.out.println(a);
 				}
 			};
 			e.consume();
-			new Timer(10, taskPerformer);
+			Timer action = new Timer(0, taskPerformer);
+			action.setRepeats(false);
+			action.start();
 		}
 
 		@Override
