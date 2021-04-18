@@ -150,8 +150,7 @@ public  class GBounded extends GElement implements GContainer{
 	}
 	
 	public void removeElement(GElement m) {
-		if (m.getContainer() == null)
-			return;
+		if (m.getContainer() != this) return;
 		subElements.remove(m);
 		m.setContainer(null);
 	}

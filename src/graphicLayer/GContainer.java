@@ -1,5 +1,6 @@
 package graphicLayer;
 import java.awt.Point;
+import java.awt.event.MouseListener;
 
 public interface GContainer {
 	void repaint();
@@ -9,4 +10,5 @@ public interface GContainer {
 	void addElement(GElement m);
 	void removeElement(GElement m);
 	void clear();
+	void addMouseListener(MouseListener listener);
 }

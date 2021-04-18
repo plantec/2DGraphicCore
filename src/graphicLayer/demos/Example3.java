@@ -4,9 +4,18 @@ package graphicLayer.demos;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.Timer;
+
+import graphicLayer.GBounded;
+import graphicLayer.GContainer;
+import graphicLayer.GElement;
 import graphicLayer.GLine;
 import graphicLayer.GOval;
 import graphicLayer.GPolyLine;
@@ -74,15 +83,51 @@ public class Example3 implements MouseListener {
 		
 		w.open();
 	}
+	
+	class AddedOvalMouseListener implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			GOval src = (GOval) e.getSource();
+			ActionListener taskPerformer = new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent a) {
+					GContainer container = src.getContainer();
+					src.delete();
+					container.repaint();
+					System.out.println(a);
+				}
+			};
+			e.consume();
+			new Timer(10, taskPerformer);
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+		}
+		
+	}
 		
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("Click " + e);
 		GOval src = (GOval) e.getSource();
 		GOval clickArea = new GOval();
 		clickArea.setDimension(new Dimension(20,20));
 		clickArea.setCenter(e.getPoint());
 		clickArea.setColor(Color.white);
 		src.addElement(clickArea);
+		clickArea.addMouseListener(new AddedOvalMouseListener());
 		src.repaint();
 		e.consume();
 	}
