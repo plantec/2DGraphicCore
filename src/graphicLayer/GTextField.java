@@ -1,11 +1,14 @@
 package graphicLayer;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 import javax.swing.JTextField;
 
 public class GTextField extends JTextField implements GElement {
+
 	private static final long serialVersionUID = 8660613563211256595L;
 
 	protected GContainer container;
@@ -16,6 +19,10 @@ public class GTextField extends JTextField implements GElement {
 		super (string, i);
 	}
 
+	public void paint(Graphics g) {
+		this.paintComponent(g);
+	}
+	
 	@Override
 	public void translate(int x, int y) {
 		Point p = this.getPosition();
